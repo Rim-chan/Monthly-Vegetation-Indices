@@ -1,0 +1,27 @@
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
+
+
+def get_main_args():
+    parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
+    arg = parser.add_argument
+    
+    arg("--cloud_coverage_percentage", type=int, default=5, help="Cloud Coverage Percentage")
+    arg("--years", type=list, default=[2019+i for i in range(4)], help="List of Years")
+    arg("--months", type=list, default=[i+1 for i in range(12)], help="List of Months")
+    
+    
+    arg("--image_idx", type=int, default=0, help="Index of Image to Display")
+    
+    arg("--RGBvis", type=dict, default={'bands': ['B4', 'B3', 'B2'], 'min': 0.0, 'max': 0.4},
+                               help="Visualization Parameters of True Color Raster")
+    
+    arg("--ndviVis", type=dict, default={'bands': ['NDVI'], 'min': -1.0, 'max': 1.0, 'palette': ['red', 'white', 'green'] },
+                                help="Visualization Parameters of NDVI")
+    
+    arg("--saviVis", type=dict, default={'bands': ['SAVI'], 'min': -1.0, 'max': 1.0, 'palette': ['red', 'white', 'green'] },
+                                help="Visualization Parameters of SAVI")
+    
+    arg("--msavi2Vis", type=dict, default={'bands': ['MSAVI2'], 'min': -1.0, 'max': 1.0, 'palette': ['red', 'white', 'green'] },
+                                help="Visualization Parameters of MSAVI2")
+
+    return parser.parse_args()
