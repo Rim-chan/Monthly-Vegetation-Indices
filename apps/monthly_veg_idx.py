@@ -22,16 +22,13 @@ def app():
     AFRICA = ee.FeatureCollection(AFRICA_DIR)
     
     country_input = st.text_input("Country", label_visibility="collapsed")
-    if country_input: 
-        with st.spinner('Wait for it...'):
-            COUNTRY = AFRICA.filter('ADM0_NAME == '+ country_input)
-            Map = geemap.Map()
-            Map.centerObject(COUNTRY, 6)
-            Map.addLayer(COUNTRY, {}, country_input);
-            Map.to_streamlit()
-    
+    COUNTRY = AFRICA.filter('ADM0_NAME == '+ country_input)
+    Map = geemap.Map()
+    Map.centerObject(COUNTRY, 6)
+    Map.addLayer(COUNTRY, {}, country_input);
+    Map.to_streamlit()
 
-    
+
     input_indcies = (
             "NDVI",
             "SAVI",
