@@ -74,10 +74,14 @@ def app():
     ndvi_img_list, ndwi_img_list, savi_img_list, msavi2_img_list =  get_S2_dataset()
     
     idx = tuple(dates).index(d)
-    st.write(idx)
     ndvi_image = ee.Image(ndvi_img_list.get(idx))
     ndwi_image = ee.Image(ndwi_img_list.get(idx))
     savi_image = ee.Image(savi_img_list.get(idx))
     msavi2_image = ee.Image(msavi2_img_list.get(idx))
     
     
+    Map = geemap.Map() 
+    Map.centerObject(COUNTRY, 6)
+    Map.addLayer(S2Col.mosaic().clip(COUNTRY), args.S2Vis, 'S2 True Color') 
+    Map.addLayer(ndvi_image.clip(COUNTRY), args.ndviVIS, 'S2 NDVI') 
+    Map.to_streamlit()
