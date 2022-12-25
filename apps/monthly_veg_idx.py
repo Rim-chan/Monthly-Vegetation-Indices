@@ -71,7 +71,7 @@ def app():
       
     ndvi_img_list, ndwi_img_list, savi_img_list, msavi2_img_list =  get_S2_dataset()
     
-    idx = tuple(dates).index(d.strftime("%B %Y"))
+    idx = tuple(dates).index(d)
     st.write(idx)
     ndvi_image = ee.Image(ndvi_img_list.get(idx))
     ndwi_image = ee.Image(ndwi_img_list.get(idx))
