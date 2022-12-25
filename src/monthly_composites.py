@@ -1,3 +1,5 @@
+import ee
+
 ## Map over the years and create a monthly collection 
 def monthly_Data (collection, years, months):
   monthly_data = []
