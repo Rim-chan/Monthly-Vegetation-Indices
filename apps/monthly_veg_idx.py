@@ -31,3 +31,11 @@ def app():
             Map.to_streamlit()
     
 
+    
+    input_indcies = (
+            "NDVI",
+            "SAVI",
+            "MSAVI2",
+            "NDWI"
+        )
+    indices = st.selectbox("Indices", input_indcies, label_visibility="collapsed") 
