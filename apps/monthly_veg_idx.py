@@ -44,7 +44,7 @@ def app():
     country = col1.selectbox("Indices", input_indcies, label_visibility="collapsed")    
     d = col2.selectbox("Dates", dates, label_visibility="collapsed")
     
-   
+    @st.cache(allow_output_mutation=True)
     def get_S2_dataset():
         
         S2Col = ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED") \
