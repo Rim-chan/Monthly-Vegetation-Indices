@@ -25,9 +25,9 @@ def app():
     if country_input: 
         with st.spinner('Wait for it...'):
             COUNTRY = AFRICA.filter('ADM0_NAME == '+ country_input)
-            Map = geemap.Map(plugin_Draw=True, Draw_export=False)
-#             Map.centerObject(COUNTRY, 6)
-#             Map.addLayer(COUNTRY, {}, country_input);
+            Map = geemap.Map()
+            Map.centerObject(COUNTRY, 6)
+            Map.addLayer(COUNTRY, {}, country_input);
             Map.to_streamlit()
     
 
