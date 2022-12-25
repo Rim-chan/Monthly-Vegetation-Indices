@@ -35,4 +35,13 @@ def app():
             "MSAVI2",
             "NDWI"
         )
-    indices = st.selectbox("Indices", input_indcies, label_visibility="collapsed") 
+    
+    dates = (
+        "January 2019"
+    )
+    dates = [i + ' ' + str(j) for j in args.years for i in list(args.growing_calendar.keys())]
+    
+    
+    col1, col2 = st.columns(2)
+    country = col1.selectbox("Indices", input_indcies, label_visibility="collapsed")    
+    date = col2.file_uploader("Upload boundary Map", label_visibility="collapsed")
