@@ -82,6 +82,6 @@ def app():
     
     Map = geemap.Map() 
     Map.centerObject(COUNTRY, 6)
-    Map.addLayer(S2Col.mosaic().clip(COUNTRY), args.S2Vis, 'S2 True Color') 
+    Map.addLayer(S2Col.mosaic().clip(COUNTRY), args.RGBvis, 'S2 True Color') 
     Map.addLayer(ndvi_image.clip(COUNTRY), args.ndviVIS, 'S2 NDVI') 
     Map.to_streamlit()
