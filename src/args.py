@@ -8,6 +8,9 @@ def get_main_args():
     arg("--cloud_coverage_percentage", type=int, default=5, help="Cloud Coverage Percentage")
     arg("--years", type=list, default=[2019+i for i in range(4)], help="List of Years")
     arg("--months", type=list, default=[i+1 for i in range(12)], help="List of Months")
+    arg("--calendar", type=dict, default={'January': 1, 'February' : 2, 'March' : 3, 'April' : 4,
+                                          'May' : 5, 'June' : 6, 'July' : 7, 'August' : 8, 'September' : 9,
+                                          'October' : 10, 'November' : 11, 'December' : 12}, help="Calendar")
     
     
     arg("--image_idx", type=int, default=0, help="Index of Image to Display")
