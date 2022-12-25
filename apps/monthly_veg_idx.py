@@ -22,7 +22,7 @@ def app():
     AFRICA = ee.FeatureCollection(AFRICA_DIR)
     country_input = st.text_input("Country", label_visibility="collapsed")
     
-    COUNTRY = AFRICA.filter('ADM0_NAME == '+ country_input))
+    COUNTRY = AFRICA.filter('ADM0_NAME == '+ country_input)
     
     if country_input: 
         with st.spinner('Wait for it...'):
