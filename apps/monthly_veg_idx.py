@@ -48,7 +48,6 @@ def app():
     def get_S2_dataset():
         
         S2Col = ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED") \
-              .filterBounds(COUNTRY)\
               .select(['QA60', 'B2', 'B3', 'B4', 'B8', 'B12'])\
               .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', args.cloud_coverage_percentage))\
               .map(cloud_mask)\
