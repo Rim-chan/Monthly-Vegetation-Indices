@@ -67,11 +67,11 @@ def app():
         savi_img_list = monthly_savi.toList(monthly_savi.size())
         msavi2_img_list = monthly_msavi2.toList(monthly_msavi2.size())
 
-        return S2Col, ndvi_img_list, ndwi_img_list, savi_img_list, msavi2_img_list
+        return ndvi_img_list, ndwi_img_list, savi_img_list, msavi2_img_list
         
         
       
-    S2Col, ndvi_img_list, ndwi_img_list, savi_img_list, msavi2_img_list =  get_S2_dataset()
+    ndvi_img_list, ndwi_img_list, savi_img_list, msavi2_img_list =  get_S2_dataset()
     
     idx = tuple(dates).index(d)
     ndvi_image = ee.Image(ndvi_img_list.get(idx))
@@ -82,6 +82,6 @@ def app():
     
     Map = geemap.Map() 
     Map.centerObject(COUNTRY, 6)
-    Map.addLayer(S2Col.mosaic().clip(COUNTRY), args.RGBvis, 'S2 True Color') 
+#     Map.addLayer(S2Col.mosaic().clip(COUNTRY), args.RGBvis, 'S2 True Color') 
     Map.addLayer(ndvi_image.clip(COUNTRY), args.ndviVIS, 'S2 NDVI') 
     Map.to_streamlit()
